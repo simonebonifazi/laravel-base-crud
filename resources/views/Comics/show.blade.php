@@ -15,6 +15,7 @@
         <p class="card-text"> Scadenza offerta: {{ $comic->sale_date }}</p>
         <p class="card-text"> Serie: {{ $comic->price }}</p>
         <p class="card-text"> Tipo: {{ $comic->type }}</p>
+        <hr>
         <a href="{{ route('comics.index') }}" class="btn btn-danger"> Torna indetro...</a>
     </div>
 </div>

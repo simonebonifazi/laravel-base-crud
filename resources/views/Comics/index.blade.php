@@ -6,7 +6,7 @@
 <ul class="d-flex justify-content-center align-items-center flex-wrap row">
 
     @foreach($comics as $comic)
-    <li class="my-5 col">
+    <li class="list-group-item m-5 col">
         <h2> {{ $comic->title }} </h2>
         <figure>
             <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
@@ -17,7 +17,7 @@
                 {{ $comic->series }} ;
             </p>
         </figcaption>
-        <a href="{{ route('comics.show', $comic->id) }}"> More info...</a>
+        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-success"> More info...</a>
     </li>
 
     @endforeach
