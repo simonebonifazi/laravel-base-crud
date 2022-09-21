@@ -13,8 +13,16 @@
 </head>
 
 <body>
-    <header class="bg-secondary">
-        <h1> TEST</h1>
+    <header class="bg-light">
+        <ul class="navbar-nav d-flex flex-row align-items-center">
+            <li class="nav-item p-5">
+                <a class="nav-link @if (Route::is('home')) active @endif" href="{{ url('/') }}"> Home </a>
+            </li>
+            <li class="nav-item p-5">
+                <a class="nav-link @if (Route::is('comics.index')) active @endif" href="{{ route('comics.index') }} ">
+                    Vista Fumetti </a>
+            </li>
+        </ul>
     </header>
 
     <main>
