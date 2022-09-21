@@ -21,6 +21,9 @@
     </li>
 
     @endforeach
+
 </ul>
+<h3>oppure carica il tuo fumetto! <a href="{{ route('comics.create')}}" class="btn btn-primary"> cliccando qui</a></h3>
+
 
 @endsection
