@@ -13,13 +13,9 @@
         </figure>
         <figcaption>
             <p>
-
-            <p>
                 Serie:
                 {{ $comic->series }} ;
             </p>
-
-
         </figcaption>
         <a href="{{ route('comics.show', $comic->id) }}"> More info...</a>
     </li>
