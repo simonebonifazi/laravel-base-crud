@@ -1,32 +1,55 @@
 @extends('layouts.main')
 
 @section('content')
-<h1> Inserisci tu un titolo che vuoi vendere in feat!</h1>
-<form action="">
-
+<h1 class="my-5"> Inserisci TU un titolo che vuoi vendere in feat!</h1>
+<form action="{{ route('comics.store')}}" method="POST">
+    <!-- titolo -->
     <div class="mb-3">
         <label for="title" class="form-label">Titolo fumetto...</label>
-        <input class="form-control" type="text" id="title" placeholder="es. capitan america">
+        <input class="form-control" type="text" id="title" name="title" placeholder="es. capitan america">
     </div>
+    <!-- descizione -->
     <div class="mb-3">
         <label for="description" class="form-label">Descrizione: </label>
-        <textarea class="form-control" id="description" placeholder="descrizione..."> </textarea>
+        <textarea class="form-control" id="description" name="description"> </textarea>
     </div>
+    <!-- thumb -->
     <div class="mb-3">
-        <label for="formFileMultiple" class="form-label">Multiple files input example</label>
-        <input class="form-control" type="file" id="formFileMultiple" multiple>
+        <label for="thumb" class="form-label">Immagine di copertina </label>
+        <input class="form-control" type="text" id="thumb" name="thumb" placeholder="Url della cover...">
     </div>
+    <!-- price -->
     <div class="mb-3">
-        <label for="formFileDisabled" class="form-label">Disabled file input example</label>
-        <input class="form-control" type="file" id="formFileDisabled" disabled>
+        <label for="price" class="form-label">Il tuo prezzo</label>
+        <input class="form-control" type="text" id="price" name="price" placeholder="scegli un prezzo ragionevole">
     </div>
+    <!-- sale_date // "parafrasato"-->
     <div class="mb-3">
-        <label for="formFileSm" class="form-label">Small file input example</label>
-        <input class="form-control form-control-sm" id="formFileSm" type="file">
+        <label for="sale_date" class="form-label">Scadenza della tua offerta</label>
+        <input class="form-control" type="text" id="sale_date" name="sale_date" placeholder="es.: 2016-08-22">
     </div>
-    <div>
-        <label for="formFileLg" class="form-label">Large file input example</label>
-        <input class="form-control form-control-lg" id="formFileLg" type="file">
+    <!-- series -->
+    <div class="mb-3">
+        <label for="series" class="form-label">La Serie del tuo fumetto</label>
+        <input class="form-control" type="text" id="series" name="series" placeholder="es. aquaman, batman...">
     </div>
+    <!-- type -->
+    <div class="mb-3">
+        <label for="type" class="form-label">Che tipo di fumetto vuoi vendere?</label>
+        <input class="form-control" type="text" id="type" name="type" placeholder="es. graphic novel, comic book...">
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <div>
+            <a class="btn btn-secondary me-4" href="{{ route('comics.index') }}"> Torna indietro..</a>
+        </div>
+        <div>
+
+            <button type="reset" class="btn btn-danger"> Cancella</button>
+            <button type="submit" class="btn btn-success"> Salva!</button>
+        </div>
+    </div>
+
+
 </form>
 @endsection
