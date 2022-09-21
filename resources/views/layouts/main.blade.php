@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <header></header>
+    <header class="bg-secondary">
+        <h1> TEST</h1>
+    </header>
 
     <main>
         @yield('content')
