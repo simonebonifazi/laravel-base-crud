@@ -3,6 +3,8 @@
 @section('content')
 <h1 class="my-5"> Inserisci TU un titolo che vuoi vendere in feat!</h1>
 <form action="{{ route('comics.store')}}" method="POST">
+    <!-- devo avvisare laravel che la domanda sia autorizzata, che venga dalla sua stessa app -->
+    @csrf
     <!-- titolo -->
     <div class="mb-3">
         <label for="title" class="form-label">Titolo fumetto...</label>
