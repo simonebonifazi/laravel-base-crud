@@ -20,14 +20,29 @@
             <a href="{{ route('comics.index') }}" class="btn btn-light"> Torna indetro...</a>
             <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-success ms-3"> ...o modifica il
                 fumetto..</a>
-            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="blocker-delete"
+                data-comic="{{ $comic->title }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger ms-3"> Proprio non ti piace? Clicca qui per
+                <button type=" submit" class="btn btn-danger ms-3"> Proprio non ti piace? Clicca qui per
                     Eliminare il fumetto! </button>
             </form>
         </div>
 
     </div>
 </div>
+@endsection
+
+@section('more-js')
+<script>
+const deleteBlocker = document.querySelectorAll('.blocker-delete');
+deleteBlocker.forEach(form => {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const comicTitle = form.getAttribute('data-comic');
+        const hasConfirmed = confirm(`Vuoi davvero eliminare ${comicTitle} ?`);
+        if (hasConfirmed) form.submit();
+    });
+})
+</script>
 @endsection
