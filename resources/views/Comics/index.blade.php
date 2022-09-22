@@ -45,6 +45,8 @@ const blockerDelete = document.querySelectorAll('.blocker-delete');
 blockerDelete.forEach(form => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+        const userChecked = confirm('Vuoi davvero eliminare questo fumetto?');
+        if (userChecked) form.submit();
     });
 })
 </script>
