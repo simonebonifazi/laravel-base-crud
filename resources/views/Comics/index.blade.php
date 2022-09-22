@@ -41,12 +41,12 @@
 
 @section('more-js')
 <script>
-const blockerDelete = document.querySelectorAll('.blocker-delete');
-blockerDelete.forEach(form => {
+const deleteBlocker = document.querySelectorAll('.blocker-delete');
+deleteBlocker.forEach(form => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
-        const userChecked = confirm('Vuoi davvero eliminare questo fumetto?');
-        if (userChecked) form.submit();
+        const hasConfirmed = confirm('Vuoi davvero eliminare questo fumetto?');
+        if (hasConfirmed) form.submit();
     });
 })
 </script>
