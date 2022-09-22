@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<h1 class="my-5"> Inserisci un nuovo fumetto per la vendita</h1>
-<form action="{{ route('comics.store')}}" method="POST">
+<h1 class="my-5"> Modifica un fumetto già esistente...</h1>
+<form action="{{ route('comics.store')}}" method="GET">
     <!-- devo avvisare laravel che la domanda sia autorizzata, che venga dalla sua stessa app -->
     @csrf
     <!-- titolo -->
@@ -25,10 +25,10 @@
         <label for="price" class="form-label">Il tuo prezzo</label>
         <input class="form-control" type="text" id="price" name="price" placeholder="scegli un prezzo ragionevole">
     </div>
-    <!-- sale_date // cambiare prospettiva rispetto da utente finale a chi riceve progetto in mano-->
+    <!-- sale_date // "parafrasato"-->
     <div class="mb-3">
-        <label for="sale_date" class="form-label">Scadenza offerta</label>
-        <input class="form-control" type="text" id="sale_date" name="sale_date" placeholder="es.: 2023-08-22">
+        <label for="sale_date" class="form-label">Scadenza della tua offerta</label>
+        <input class="form-control" type="text" id="sale_date" name="sale_date" placeholder="es.: 2016-08-22">
     </div>
     <!-- series -->
     <div class="mb-3">
