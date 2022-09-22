@@ -30,6 +30,8 @@
             @yield('content')
         </div>
     </main>
+
+    @yield('more-js')
 </body>
 
 </html>

@@ -22,7 +22,7 @@
             <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-outline-info"> Più info...</a>
             <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-outline-success ms-3"> ...o modifica il
                 fumetto..!</a>
-            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+            <form class="blocker-delete" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-outline-danger ms-3"> Elimina il fumetto! :( </button>
@@ -37,4 +37,15 @@
         qui</a></h3>
 
 
+@endsection
+
+@section('more-js')
+<script>
+const blockerDelete = document.querySelectorAll('.blocker-delete');
+blockerDelete.forEach(form => {
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+    });
+})
+</script>
 @endsection
