@@ -80,7 +80,15 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        
+        $data = $request->all();
+
+        $comic->fill($data);
+
+        $comic->save();
+
+        return redirect()->route('comics.index');
     }
 
     /**

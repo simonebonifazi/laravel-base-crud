@@ -2,9 +2,11 @@
 
 @section('content')
 <h1 class="my-5"> Modifica un fumetto già esistente...</h1>
-<form action="{{ route('comics.store')}}" method="GET">
+<form action="{{ route('comics.update', $comic->id)}}" method="POST">
     <!-- devo avvisare laravel che la domanda sia autorizzata, che venga dalla sua stessa app -->
     @csrf
+    <!-- devo cambiare il metodo in put(modifica completa,totale) o patch(modifiche parziali) -->
+    @method('PUT')
     <!-- titolo -->
     <div class="mb-3">
         <label for="title" class="form-label">Titolo fumetto...</label>
