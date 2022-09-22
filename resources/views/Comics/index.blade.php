@@ -6,7 +6,7 @@
 <ul class="d-flex justify-content-center align-items-center flex-wrap row">
 
     @foreach($comics as $comic)
-    <li class="list-group-item m-5 col">
+    <li class="list-group-item m-5 col-2">
         <h2> {{ $comic->title }} </h2>
         <figure>
             <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
@@ -17,7 +17,12 @@
                 {{ $comic->series }} ;
             </p>
         </figcaption>
-        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-success"> More info...</a>
+        <div class="d-flex justify-content-between">
+
+            <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-outline-info"> Più info...</a>
+            <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-outline-success ms-3"> ...o modifica il
+                fumetto..!</a>
+        </div>
     </li>
 
     @endforeach
