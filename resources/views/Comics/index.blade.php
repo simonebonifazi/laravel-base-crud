@@ -6,7 +6,7 @@
 <ul class="d-flex justify-content-center align-items-center flex-wrap row">
 
     @foreach($comics as $comic)
-    <li class="list-group-item m-5 col-2">
+    <li class="list-group-item m-5 col-3">
         <h2> {{ $comic->title }} </h2>
         <figure>
             <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
@@ -22,6 +22,11 @@
             <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-outline-info"> Più info...</a>
             <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-outline-success ms-3"> ...o modifica il
                 fumetto..!</a>
+            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-outline-danger ms-3"> Elimina il fumetto! :( </button>
+            </form>
         </div>
     </li>
 

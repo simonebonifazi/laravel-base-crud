@@ -17,9 +17,15 @@
         <p class="card-text"> Tipo: {{ $comic->type }}</p>
         <hr>
         <div class="d-flex justify-content-between">
-            <a href="{{ route('comics.index') }}" class="btn btn-danger"> Torna indetro...</a>
+            <a href="{{ route('comics.index') }}" class="btn btn-light"> Torna indetro...</a>
             <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-success ms-3"> ...o modifica il
-                fumetto..!</a>
+                fumetto..</a>
+            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger ms-3"> Proprio non ti piace? Clicca qui per
+                    Eliminare il fumetto! </button>
+            </form>
         </div>
 
     </div>
