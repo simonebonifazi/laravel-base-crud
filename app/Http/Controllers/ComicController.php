@@ -111,7 +111,9 @@ class ComicController extends Controller
         $comic = Comic::findOrFail($id);
 
            $request->validate([
-            'title' => 'required|string', 
+            // ! nel caso modifica a un campo esistente che è unique (es. titolo) devo tornare alla sitassi square braquets e istanziare la classe Rule, segnalandoli l'eccezzione
+            'title' => ['required','string', Rule::unique('comics')->ignore($comic->id)], 
+            //! così potremo modificare il fumetto in un solo campo senza incappare in errore(posso modificare il prezzo senza dover cambiare il titolo!)
             'description' => 'required|string',
             'thumb' => 'nullable|string',
             'price' => 'required|numeric|min:0',
