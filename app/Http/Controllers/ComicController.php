@@ -44,7 +44,7 @@ class ComicController extends Controller
             //elenco i valori delle colonne che coincidono con gli attributi name e for e id del form, 
             'title' => 'required|string', //assegnandogli un set di regole
             'description' => 'required|string',
-            'thumb' => 'required|string',
+            'thumb' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'sale_date' => 'nullable|date',
             'series' => 'required|string',
@@ -56,6 +56,9 @@ class ComicController extends Controller
             'required' => 'Attenzione, il campo :attribute è obbbligatorio',
             //con title.regoladarispettare vado a customizzare il mio errore specifico per il singolo attributo, con il mio messaggio
             'title.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio titolo . Controlla e riprova',
+            'price.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio Prezzo. Controlla e riprova',
+            'series.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio Serie. Controlla e riprova',
+            'type.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio Tipo. Controlla e riprova',
         ]);
     
 
