@@ -109,6 +109,24 @@ class ComicController extends Controller
     public function update(Request $request, $id)
     {
         $comic = Comic::findOrFail($id);
+
+           $request->validate([
+            'title' => 'required|string', 
+            'description' => 'required|string',
+            'thumb' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+            'sale_date' => 'nullable|date',
+            'series' => 'required|string',
+            'type' => 'required|string',
+           
+        ], 
+        [
+            'required' => 'Attenzione, il campo :attribute è obbbligatorio',
+            'title.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio titolo . Controlla e riprova',
+            'price.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio Prezzo. Controlla e riprova',
+            'series.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio Serie. Controlla e riprova',
+            'type.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio Tipo. Controlla e riprova',
+        ]);
         
         $data = $request->all();
 

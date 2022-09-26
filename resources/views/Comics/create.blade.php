@@ -59,7 +59,9 @@
         <label for="type" class="form-label">Che tipo di fumetto vuoi vendere?</label>
         <input class="form-control" type="text" id="type" name="type" placeholder="es. graphic novel, comic book..."
         value=" {{ old('type'}}">
-        <!-- # il value old('nome attributo') fa si che se c'è un errore, verrà reimpostato ciò che è stato scritto dell'utente in precedenza, al ricaricare della pagina dopo l'invio dei dati -->
+        <!-- # il value old('nome attributo') fa si che se c'è un errore, verrà reimpostato ciò che è stato scritto dell'utente in precedenza, al ricaricare della pagina dopo l'invio dei dati
+            # ne consegue che nel form congiunto edit e create dovrò aggiungere secondo parametro
+            : old('type', $comic->type) , che cerca il valore per il campo nel db   -->
     </div>
     <!-- buttons & a -->
     <div class="d-flex justify-content-between">
