@@ -48,7 +48,7 @@
         <input class="form-control" type="text" id="type" name="type" placeholder="es. graphic novel, comic book..."
             value="{{ $comic->type }}">
     </div>
-
+    <!-- buttons & a -->
     <div class="d-flex justify-content-between">
         <div>
             <a class="btn btn-secondary me-4" href="{{ route('comics.index') }}"> Torna indietro..</a>

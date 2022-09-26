@@ -36,19 +36,44 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        //raccolgo i dati in una variabile $data in forma di array associativo
         $data = $request->all();
 
+        //! aggiungo validazione, dove se non rispettata non si esegue il codice a seguire (sotto)
+        $request->validate([
+            //elenco i valori delle colonne che coincidono con gli attributi name e for e id del form, 
+            'title' => 'required|string', //assegnandogli un set di regole
+            'description' => 'required|string',
+            'thumb' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'sale_date' => 'nullable|date',
+            'series' => 'required|string',
+            'type' => 'required|string',
+           
+        ], //qui posso passare un parametro opzionale con il quale customizzare gli errori
+        [
+            // :attribute è un 'jolly' che riempre il campo con il nome dell'attributo puntato
+            'required' => 'Attenzione, il campo :attribute è obbbligatorio',
+            //con title.regoladarispettare vado a customizzare il mio errore specifico per il singolo attributo, con il mio messaggio
+            'title.required' => 'Attenzione, hai lasciato libero il campo obbbligatorio titolo . Controlla e riprova',
+        ]);
+    
+
+        //creo una nuova istanza di fumetto a)
         $comic= new Comic();
-        
+        //compilo l'istanza con gli attributi b)
         $comic->fill($data);
-
+        //salvo nel db c)
         $comic->save();
-
+        /**
+         * o anche: $comic = Comic::create($data); che assolve funzione di a),b) e c)
+         */
+        //reindirizzo
         return redirect()->route('comics.index');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource. 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

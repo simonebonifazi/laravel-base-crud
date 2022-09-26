@@ -2,6 +2,19 @@
 
 @section('content')
 <h1 class="my-5"> Inserisci un nuovo fumetto per la vendita</h1>
+<!-- stampo validazione -->
+@if($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach($errors->all() as $error)
+        <li>
+            {{ $error }}
+        </li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <form action="{{ route('comics.store')}}" method="POST">
     <!-- devo avvisare laravel che la domanda sia autorizzata, che venga dalla sua stessa app -->
     @csrf
@@ -40,7 +53,7 @@
         <label for="type" class="form-label">Che tipo di fumetto vuoi vendere?</label>
         <input class="form-control" type="text" id="type" name="type" placeholder="es. graphic novel, comic book...">
     </div>
-
+    <!-- buttons & a -->
     <div class="d-flex justify-content-between">
         <div>
             <a class="btn btn-secondary me-4" href="{{ route('comics.index') }}"> Torna indietro..</a>
